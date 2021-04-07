@@ -62,19 +62,14 @@ app.post('/signup',
     }
 );
 
-// search button 
-// GET request to server, 
-    // take the request, and parse into a usable API fetch request, spits back out the response and send to the front page
+//When search button is clicked on front end, sends a POST request to /search endpoint
+    //middleware gets results from various apis, stores data in an array and sends data back to client
 app.post('/search', 
     apiController.googleBooks,
     apiController.newYorkTimes,
-    (req, res) => {
-    console.log('Request body: ', req.body.updatedString)
-    // console.log('res locals data:', res.locals.data)
-    // console.log(res.locals.data)
-    res.status(200).json(res.locals.data)
-    // console.log('We are at the back end /search endpoint')
-})
+    apiController.openLibrary,
+    (req, res) => res.status(200).json(res.locals.data)
+)
 
 // verify user is logged in. no subsequent middleware is activated unless user is verified. float the 
 // check for verification at the last middleware, where it can be directed to different endpoints depending on the state of successful login
