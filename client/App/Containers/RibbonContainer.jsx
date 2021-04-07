@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom'
 class RibbonContainer extends React.Component{
   constructor(props){
     super(props)
-
-
   }
   
   render(){
@@ -27,4 +25,4 @@ class RibbonContainer extends React.Component{
   }
 }
 
-export default RibbonContainer
+export default RibbonContainer;

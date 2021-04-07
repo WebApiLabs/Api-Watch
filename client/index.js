@@ -63,9 +63,7 @@ class App extends React.Component{
             return (<Router><Route path='/' exact render={(props) => <MainPage loginFail={this.state.loginFail}/>}/></Router>)
         }
         return(
-            
-           <Router>
-               
+           <Router>               
               <Route path='/' exact render={(props) => <MainPage loginFail={this.state.loginFail}/>}/> 
               <Route path='/login' exact render={(props) => <LoginPage loginFcn={this.doLogIn}/>}/> 
               <Route path='/signup' exact render={(props) => <SignupPage loginFail={this.state.loginFail}/>}/>
