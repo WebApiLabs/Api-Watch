@@ -9,20 +9,27 @@ apiController.googleBooks = (req, res, next) => {
     // const finalUrl = 'https://www.googleapis.com/books/v1/volumes?q=Moby+Dick&key=AIzaSyCKP8TdjmMKlVeQFAh7oITw8OdUBBID2VU'
     console.log('in api controller')
     res.locals.data = [];
+
     fetch(finalUrl)
     .then(response => {
         return response.json()
     })
     .then(data => {
-        for (let i = 0; i < 4 && i < data.items.length; i++) {
-            if (data.items[i].volumeInfo.authors === undefined) data.items[i].volumeInfo.authors = ['No Author Listed']
-            let bookInfo = {
-                title: data.items[i].volumeInfo.title,  
-                selfLink: data.items[i].selfLink,     
-                author: data.items[i].volumeInfo.authors[0],   
-              }
-            res.locals.data.push(bookInfo);
+        // for (let i = 0; i < 4 && i < data.items.length; i++) {
+        //     if (data.items[i].volumeInfo.authors === undefined) data.items[i].volumeInfo.authors = ['No Author Listed']
+        //     let bookInfo = {
+        //         title: data.items[i].volumeInfo.title,  
+        //         selfLink: data.items[i].selfLink,     
+        //         author: data.items[i].volumeInfo.authors[0],   
+        //       }
+        //     res.locals.data.push(bookInfo);
+        // }
+        const responseObj = {
+            api: 'Google Books API',
+            results: data,
+            time: 100
         }
+        res.locals.data.push(responseObj)
 
         return next();
     })
@@ -44,15 +51,22 @@ apiController.newYorkTimes = (req, res, next) => {
          return response.json(); 
     })
     .then(data => {
-        for (let i = 0; i < 4 && i < data.results.length; i++) {
-            let selfLink = data.results[i].url
-            let bookInfo = {
-                title: data.results[i].book_title,  
-                selfLink: selfLink,     
-                author: data.results[i].book_author,   
-              }
-            res.locals.data.push(bookInfo);
+        // for (let i = 0; i < 4 && i < data.results.length; i++) {
+        //     let selfLink = data.results[i].url
+        //     let bookInfo = {
+        //         title: data.results[i].book_title,  
+        //         selfLink: selfLink,     
+        //         author: data.results[i].book_author,   
+        //       }
+        //     res.locals.data.push(bookInfo);
+        // }
+        const responseObj = {
+            api: 'NYTimes API',
+            results: data,
+            time: 100
         }
+        res.locals.data.push(responseObj)
+        
         return next();
     })
     .catch(err => console.log(err))
