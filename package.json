@@ -13,7 +13,7 @@
     ]
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --verbose",
     "start": "nodemon server/server.js",
     "build-win": "SET NODE_ENV=production&&webpack",
     "dev-win": "concurrently \"nodemon server/server.js\"  \"SET NODE_ENV=development&&webpack serve --open\"",
@@ -61,6 +61,11 @@
     "webpack-dev-server": "^3.11.2"
   },
   "devDependencies": {
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.6.1",
+    "jest": "^26.6.3",
     "webpack": "^5.30.0"
   }
 }

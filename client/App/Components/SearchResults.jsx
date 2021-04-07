@@ -7,7 +7,7 @@ class SearchResults extends React.Component{
     }
 
     render(){
-        console.log("props", this.props)
+        console.log("props", this.props.books)
     return(
          <table className='table' >
                 <tbody>
@@ -15,7 +15,7 @@ class SearchResults extends React.Component{
                         <td className='datainformation'>
                              <p className='datainformation'>Book Title: {this.props.books.title} </p>
                              <p className='datainformation'>Author: {this.props.books.author}</p>
-                            <p className='datainformation'>API: {this.props.books.selfLink}</p>
+                             <p className='datainformation'>API: {this.props.books.selfLink}</p>
                             {/* <p className='title'>Hello </p>
                              <p className='author'>This</p>
                             <p className='selfLink'>Renders</p> */}

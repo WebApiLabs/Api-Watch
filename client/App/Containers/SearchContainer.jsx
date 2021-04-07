@@ -65,7 +65,7 @@ class SearchContainer extends React.Component{
     //render container array in the return statement
     const rowsArray = [];
     for (let i = 0; i < this.state.books.length; i++){
-      rowsArray.push(<SearchResults key = {i} books={this.state.books[i]}/>)
+      rowsArray.push(<SearchResults key = {i} books={this.state.books[i]} />)
     }
     
       return(
