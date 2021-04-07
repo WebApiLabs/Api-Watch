@@ -5,7 +5,7 @@ import { useHistory } from 'react-router'
 const LoginPage = (props) => {
   const history = useHistory();
 
-  const routeChange=()=> {
+  const routeChange = () => {
     let path = `/`;
     history.push(path);
   }
@@ -24,4 +24,4 @@ const LoginPage = (props) => {
   )
 }
 
-export default LoginPage
+export default LoginPage;
