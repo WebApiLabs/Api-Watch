@@ -6,7 +6,7 @@ class SearchContainer extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      books: [],
+      apiInfo: [],
       searchResults: null
     }
 
@@ -37,21 +37,19 @@ class SearchContainer extends React.Component{
       .then(response => response.json())
       .then(data => {
         console.log('Data received from backend: ', data[0])
-        let updatedState = this.state;
-        let bookArray = [];
+        // create a deep copy of the current state
+        let updatedState = JSON.parse(JSON.stringify(this.state));
+        let infoArray = [];
         data.forEach(element => {
-          let bookInfo = {
-            // title: element.volumeInfo.title,       
-            title: element.title,       
-            selfLink: element.selfLink,     
-            // author: element.volumeInfo.authors[0],            
-            author: element.author,            
+          let infoObj = {     
+            api: element.api,          
+            time: element.time,
+            results: element.results
           }
-          bookArray.push(bookInfo)
+          infoArray.push(infoObj);
         })
-        updatedState.books = bookArray
-        console.log('updated state',updatedState)
-        this.setState(updatedState)
+        updatedState.apiInfo = infoArray;
+        this.setState(updatedState);
 
       })
 
@@ -64,8 +62,8 @@ class SearchContainer extends React.Component{
     // <SearchResults booktite=data.title/>
     //render container array in the return statement
     const rowsArray = [];
-    for (let i = 0; i < this.state.books.length; i++){
-      rowsArray.push(<SearchResults key = {i} books={this.state.books[i]} />)
+    for (let i = 0; i < this.state.apiInfo.length; i++){
+      rowsArray.push(<SearchResults key = {i} apiInfo={this.state.apiInfo[i]} />)
     }
     
       return(
