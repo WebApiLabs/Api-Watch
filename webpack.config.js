@@ -1,11 +1,8 @@
-/* eslint-disable no-unused-vars */
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [
-    // entry point of our app
     './client/index.js',
   ],
   output: {
@@ -24,10 +21,6 @@ module.exports = {
     hot: true,
     // match the output 'publicPath'
     publicPath: '/',
-    // fallback to root for other urls
-    // historyApiFallback: true,
-
-    // inline: true,
 
     // headers: { 'Access-Control-Allow-Origin': '*' },
     /**
@@ -36,9 +29,9 @@ module.exports = {
      * routes api fetch requests from localhost:8080/api/* (webpack dev server)
      * to localhost:3000/api/* (where our Express server is running)
      */
-     proxy: {
-      '/': 'http://localhost:3000'
-    }
+    proxy: {
+      '/': 'http://localhost:3000',
+    },
   },
   module: {
     rules: [
@@ -48,24 +41,23 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
         },
       },
       {
         test: /.(css|scss)$/,
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
-      }
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './client/index.html',
-    }), 
+    }),
   ],
   resolve: {
-    // Enable importing JS / JSX files without specifying their extension
     extensions: ['.js', '.jsx'],
   },
 };

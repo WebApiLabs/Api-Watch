@@ -2,7 +2,7 @@ const Session = require('../models/sessionModel');
 
 const sessionController = {};
 
-
+//BEFORE
 // sessionController.verifyLogin = (req, res, next) => {
 
 //   // verify user has ssid cookie
@@ -26,8 +26,19 @@ const sessionController = {};
 //   }
 // }
 
+//AFTER
+
 sessionController.isLoggedin = (req, res, next) => {
-   next();
+  //check to see if cookie exists
+  if(req.cookies.ssid) {
+    Session.findOne({cookieId: req.cookies.ssid})
+    .then(session => {session.cookieId ? res.locals.hasSession = true : res.locals.hasSession = false; next();})
+    .catch(err => {res.locals.hasSession = false; next()})
+  } else {
+    //if there is not a cookie, res.locals.isloggedIn = false, invoke next
+    res.locals.hasSession = false;
+    next();
+  }
 }
 
 
@@ -45,7 +56,7 @@ sessionController.startSession = (req, res, next) => {
         }
         else { 
           console.log('created session')
-          return next();;
+          return next();
         } 
       });
     }
