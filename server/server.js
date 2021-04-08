@@ -21,13 +21,14 @@ mongoose.connection.once('open', () => {
 });
 
 // express parsers
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 app.use(cookieParser())
 
 
 // serve the home page
 app.get('/', 
-    sessionController.verifyLogin,  
+    // sessionController.isLoggedin,  
     (req, res) => {
         if (res.locals.isLogged) res.send('is logged')
         res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
@@ -67,7 +68,7 @@ app.post('/signup',
 app.post('/search', 
     apiController.googleBooks,
     apiController.newYorkTimes,
-    apiController.openLibrary,
+    // apiController.openLibrary,
     (req, res) => res.status(200).json(res.locals.data)
 )
 
