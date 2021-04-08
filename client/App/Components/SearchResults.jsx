@@ -10,12 +10,12 @@ class SearchResults extends React.Component{
         const jsonRender = JSON.stringify(this.props.apiInfo.results, null, 2);
         let jsonResults = <Results jsonRender = {jsonRender}/>
       return(
-        <table className='table' >
+        <table className='table'>
           <tbody>
             <tr>
               <td className='datainformation'>
-                <p className='datainformation'>API: {this.props.apiInfo.api} </p>
-                <p className='datainformation'>Time: {this.props.apiInfo.time}</p>
+                <p className='datainformation'>Name of API: {this.props.apiInfo.api} </p>
+                <p className='datainformation'>Response Time: {this.props.apiInfo.time}</p>
                 <div className='datainformation'>Results: {jsonResults}</div>
               </td>
             </tr>

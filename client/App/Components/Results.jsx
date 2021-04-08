@@ -29,9 +29,9 @@ class Results extends React.Component {
   
   render(){
     return(
-      <div>
+      <div className = 'individualResults'>
         <button onClick={this.buttonFunc}>{this.state.buttonText}</button>
-        <pre>{this.state.showResult}</pre>
+        <pre className="custom-json-pretty">{this.state.showResult}</pre>
       </div>
     )
   }
