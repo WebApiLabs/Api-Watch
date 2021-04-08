@@ -7,10 +7,9 @@ const SignupButton = () => {
     e.preventDefault();
   }
   return (
-    <button type="button" className="signup" onClick={handleClick}>
+    <button type="button" className="button" onClick={handleClick}>
       <Link to="/signup">
-        <i className="fas fa-user-plus" />
-        Sign Up
+        <p className="buttonText">Sign Up</p>
       </Link>
     </button>
 

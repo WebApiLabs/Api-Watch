@@ -1,10 +1,10 @@
 import React from 'react';
-
+  
 const SearchBar = (props) => (
   <div className="searchBar">
     <input
       id="searchvalues"
-      type="search"
+      type="text"
       placeholder="Please enter a request..."
     />
     <button
@@ -15,7 +15,6 @@ const SearchBar = (props) => (
       }}
     >
       Search
-      <i className="fab fa-searchengin" />
     </button>
   </div>
 );

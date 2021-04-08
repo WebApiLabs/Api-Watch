@@ -12,15 +12,15 @@ const SearchResults = (props) => {
         <tr>
           <td className="datainformation">
             <p className="datainformation">
-              Name of API:
-              {this.props.apiInfo.api}
+              Name: 
+              {props.apiInfo.api}
             </p>
             <p className="datainformation">
-              Response Time:
-              {this.props.apiInfo.time}
+              Response Time: 
+              {props.apiInfo.time}
             </p>
-            <div className="datainformation">
-              Results:
+            <div className="jsonTable">
+              Results: 
               {jsonResults}
             </div>
           </td>
