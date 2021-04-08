@@ -170,6 +170,5 @@ apiController.newYorkTimes = (req, res, next) => {
 //         return next();
 //     })
 // } 
->>>>>>> 0712c6818cb40afc6f4296566b7ee0d33de1c63f
 
 module.exports = apiController
