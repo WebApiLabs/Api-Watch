@@ -9,16 +9,16 @@ const apiController = {};
  * @params {string} time - The ellapsed time the api query took
 */
 
-function ApiResult (apiName, data, time){
-    this.api = apiName;
-    this.results = data;
-    this.time = time;
+function ApiResult(apiName, data, time) {
+  this.api = apiName;
+  this.results = data;
+  this.time = time;
 }
 
 apiController.googleBooks = (req, res, next) => {
-    // Checks to see if res.locals has an array so that this controller could be first in middleware chain if needed
-    if (res.locals.data === undefined) 
-      res.locals.data = [];
+  // Checks to see if res.locals has an array so that this controller could be first in middleware chain if needed
+  if (res.locals.data === undefined) 
+    res.locals.data = [];
 
       // Create API Url with the given string from the client
       const url = `https://www.googleapis.com/books/v1/volumes?q=${req.body.updatedString}&key=AIzaSyCKP8TdjmMKlVeQFAh7oITw8OdUBBID2VU`
@@ -93,6 +93,6 @@ apiController.openLibrary = (req, res, next) => {
         res.locals.data.push(apiResults)
         return next();
     })
-} 
+};
 
 module.exports = apiController

@@ -28,6 +28,7 @@ const sessionController = {};
 
 //AFTER
 
+// Checks if the User has an active session or not
 sessionController.isLoggedin = (req, res, next) => {
   //check to see if cookie exists
   if(req.cookies.ssid) {
@@ -41,26 +42,20 @@ sessionController.isLoggedin = (req, res, next) => {
   }
 }
 
-
-sessionController.startSession = (req, res, next) => {    
-  if (res.locals.signupFail) return next();
-  if (res.locals.loginFail) return next();
-  Session.findOne({cookieId: res.locals.id}, (err, session) => {
-    if(session){
-      return next();
-    }
-    else {
-      Session.create({cookieId: res.locals.id}, (err, session) => {
-        if (err) {
-          return next({err: 'Error in start session'});
-        }
-        else { 
-          console.log('created session')
-          return next();
-        } 
-      });
-    }
-  });
+// Starts a Session for a user when they login or signup
+sessionController.startSession = (req, res, next) => {
+  // Attempts to update a Session in the database, with the current time
+  // If the Session does not exist in the database, create a new Session automatically
+  Session.findOneAndUpdate({cookieId: res.locals.id}, {createAt: Date.now()}, {new: true, upsert: true})
+    // When Sucessful move to the next Middleware Function
+    .then((session => next()))
+    // When an Error occurs, redirect to global error handler
+    .catch(err => {
+      return next({
+        log: 'Express error handler caught unknown middleware error',
+        message: { err: 'An error occurred when starting a Session' }
+        });
+    })
 };
 
 module.exports = sessionController;

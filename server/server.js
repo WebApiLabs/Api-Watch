@@ -4,6 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const port = 3000;
 
+const Session = require('../authentication/models/sessionModel');
+
 
 const mongoose = require('mongoose');
 
@@ -13,7 +15,6 @@ const sessionController = require('../authentication/controllers/sessionControll
 const apiController = require('../authentication/controllers/apiController');
 
 // Mongoose Database connection
-console.log('Connecting to Mongoose Database...');
 const mongoURI = 'mongodb://localhost/API-Gateway';   
 mongoose.connect(mongoURI, {useNewUrlParser: true});
 mongoose.connection.once('open', () => {
@@ -26,40 +27,23 @@ app.use(express.json())
 app.use(cookieParser())
 
 
-// serve the home page
-app.get('/', 
-    sessionController.isLoggedin,  
-    (req, res) => {
-        if (res.locals.hasSession) res.json({isLoggedIn: true})
-        res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
-    }
-);
+// Initial Request Servers the React App
+app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../client/index.html')) );
 
-// app.get('/signup', 
-//     sessionController.verifyLogin, 
-//     (req, res) => {
-//         if (res.locals.isLogged) res.send('is logged')
-//         res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
-//     }
-// );
-
-// app.get('/login', 
-//     sessionController.verifyLogin, 
-//     (req, res) => {
-//         if (res.locals.isLogged) res.send('is logged')
-//         res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
-//     }
-// );
+// Sends a boolean object to the front end to check if the user is currently logged in or not (has an active session)
+app.get('/isLoggedIn',
+    sessionController.isLoggedin,
+    (req, res) =>  res.json({isLoggedIn: res.locals.hasSession})
+)
 
 // get the user signin information from frontend to login
 // login information is inside request body
 app.post('/signup', 
-    (req, res, next) => {console.log('Signup req body in backend: ', req.body), next()},
     userController.createUser,
     cookieController.setSSIDCookie,  
     sessionController.startSession, 
     (req, res) => {
-        res.status(200).send(res.locals) 
+        res.status(200).json({ signupFail: false });
     }
 );
 
@@ -75,43 +59,34 @@ app.post('/search',
 // verify user is logged in. no subsequent middleware is activated unless user is verified. float the 
 // check for verification at the last middleware, where it can be directed to different endpoints depending on the state of successful login
 app.post('/login', 
-    (req, res, next) => {console.log('Login req body in backend: ', req.body), next()},
     userController.verifyUser, 
     cookieController.setSSIDCookie,  
     sessionController.startSession, 
-    (req, res) => {    
-        if (res.locals.signupFail) console.log('invalid login credentials')  
-        else {
-            res.status(200).send(res.locals)   
-        }
-    }
+    (req, res) =>  res.status(200).json({ loginFail: false })
 );
 
 // handle unrecognized requests with 404
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
 
-/**
- * Global error handler
- */
+// Global Error Handler
  app.use((err, req, res, next) => {
+    // Template for the incoming Error
     const defaultErr = {
       log: 'Express error handler caught unknown middleware error',
       status: 500,
       message: { err: 'An error occurred' },
     };
-    const errorObj = Object.assign({}, defaultErr, err);
-    // console.log(errorObj.log);
-    console.log('Local Obj: ', res.locals)
-    if(res.locals.signupFail) console.log("invalid signup credentials")
-    if(res.locals.loginFail) console.log("invalid login credentials")
 
-    console.log('Error log: ', errorObj.log);
-    console.log('Error msg: ', errorObj.message);
+    // Formating the incoming Error to match the template
+    const errorObj = Object.assign({}, defaultErr, err);
+
+    console.log('Local Obj: ', res.locals)
+    console.log('Error Object: ', errorObj);
+
+    // Talk to Front End to find out what we are sending back
     return res.status(errorObj.status).json(errorObj.message);
   });
 
 
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-  })
+app.listen(port, () =>  console.log(`Example app listening at http://localhost:${port}`))
