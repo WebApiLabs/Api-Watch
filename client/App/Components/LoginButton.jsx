@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 
 const LoginButton = () => (
 
-  <button type="button" className="login">
+  <button type="button" className="button">
     <Link to="login">
-      <i className="fas fa-sign-in-alt"> Login</i>
+      <p className="buttonText">Login</p>
     </Link>
   </button>
 
 );
 
 export default LoginButton;
+[]

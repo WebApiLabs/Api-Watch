@@ -40,11 +40,11 @@ const SignupPage = (props) => {
   return (
     <div className="signuppage">
       <div className="signupbox">
-        <img className="wunderpuss" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Komodo5_28-12-11_-_47a_alert_%286695807463%29.jpg" />
+      <img src="https://vectorified.com/images/orca-icon-9.png" alt="Orca icon"></img>
         <input id="username" type="text" name="username" placeholder="Enter new username here" className="form" />
-        <input id="password" type="password" name="password" placeholder="Enter new password here" className="form" />
+        <input id="password" type="text" name="password" placeholder="Enter new password here" className="form" />
         <button className="login" onClick={() => { doSignUp(), routeChange(); }}>
-          <i className="fas fa-sign-in-alt">Sign up</i>
+          <p>Sign up</p>
         </button>
       </div>
     </div>

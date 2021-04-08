@@ -10,6 +10,8 @@ class RibbonContainer extends React.Component {
   render() {
     return (
       <div className="ribboncontainer">
+        <h1>API Watch</h1>
+        <div></div>
         {this.props.loginFail ? <SignupButton /> : null}
         {this.props.loginFail ? <LoginButton /> : null}
       </div>

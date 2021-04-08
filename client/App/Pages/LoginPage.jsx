@@ -12,11 +12,11 @@ const LoginPage = (props) => {
   return (
     <div className="loginpage">
       <div className="loginbox">
-        <img className="wunderpuss" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Komodo5_28-12-11_-_47a_alert_%286695807463%29.jpg" />
+        <img src="https://vectorified.com/images/orca-icon-9.png" alt="Orca icon" />
         <input id="username" type="text" placeholder="Enter your username here" className="form username" />
         <input id="password" type="password" placeholder="Enter your password here" className="form password" />
         <button className="login" onClick={() => { props.loginFcn(), routeChange(); }}>
-          <i className="fas fa-sign-in-alt">Login</i>
+          <p>Login</p>
         </button>
       </div>
     </div>

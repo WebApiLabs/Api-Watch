@@ -30,7 +30,7 @@ class Results extends React.Component {
   render() {
     return (
       <div className="individualResults">
-        <button onClick={this.buttonFunc}>{this.state.buttonText}</button>
+        <button className = 'resultsButton' type='submit' onClick={this.buttonFunc}>{this.state.buttonText}</button>
         <pre className="custom-json-pretty">{this.state.showResult}</pre>
       </div>
     );
