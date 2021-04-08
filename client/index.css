@@ -1,226 +1,208 @@
 *{
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body{
-    padding: 0;
-    margin: 0;
-    min-height: 100vh;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .header{
-    background-color: pink;
-    
+  background-color: pink;
 }
 
 .ribboncontainer{
-    display: flex;
-    justify-content: flex-end;
-    gap: 2rem;
-    height:45px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  height:45px;
 }
 
 .signup {
-    background-color: white;
-    border:none;
-    border-radius:10px;
-    padding: 3px 18px;
-    height:20px;
-    color:navy;
-    margin-top: 8px;
+  background-color: white;
+  border:none;
+  border-radius:10px;
+  padding: 3px 18px;
+  height:20px;
+  color:navy;
+  margin-top: 8px;
 }
 
 .signup:hover {
-    background-color:pink;
+  background-color:pink;
 }
 
 .login{
-    background-color: white;
-    border:none;
-    border-radius:10px;
-    padding: 5px 10px;
-    height:22px;
-    color:navy;
-    margin-top:8px;
-    margin-right:3px;
-
+  background-color: white;
+  border:none;
+  border-radius:10px;
+  padding: 5px 10px;
+  height:22px;
+  color:navy;
+  margin-top:8px;
+  margin-right:3px;
 }
 
 .login:hover {
-    background-color:pink;
-    
+  background-color:pink;
 }
 
 
 
 .signuppage{
-    background-color: pink;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: pink;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .signupbox{
-    display: flex;
-    gap:2.5rem;
-    flex-direction: column;
-    height: 60vh;
-    width: 30vw;
-    border-radius: 1rem;
-    background-color: white;
-    box-shadow: 5px 3px 3px black;
+  display: flex;
+  gap:2.5rem;
+  flex-direction: column;
+  height: 60vh;
+  width: 30vw;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 5px 3px 3px black;
 }
 
 .loginpage{
-    background-color: pink;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: pink;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loginbox{
-    display: flex;
-    gap: 2.5em;
-    flex-direction: column;
-    height: 60vh;
-    width: 30vw;
-    border-radius: 1rem;
-    background-color: white;
-    box-shadow: 5px 3px 3px black;
+  display: flex;
+  gap: 2.5em;
+  flex-direction: column;
+  height: 60vh;
+  width: 30vw;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 5px 3px 3px black;
 }
 
 .form{
-    position: relative;
-    width: 80%;
-    left: 3rem;
-    padding: 0.5rem;
+  position: relative;
+  width: 80%;
+  left: 3rem;
+  padding: 0.5rem;
 }
 
 .wunderpuss{
-    height: 20rem;
-    width: 25rem;
-    position: relative;
-    top: 1rem;
-    left: 2.5rem;
+  height: 20rem;
+  width: 25rem;
+  position: relative;
+  top: 1rem;
+  left: 2.5rem;
 }
 
 .search {
-    background-color: white;
-    border-color: navy;
-    border-radius:5em;
-    /* padding: 5px 7px;
-    height:22px; */
-    width: 80px;
-    color:navy;
-    /* margin-top:8px; */
-    height: 2em;
-    margin-left: 5px;
-    
+  background-color: white;
+  border-color: navy;
+  border-radius:5em;
+  width: 80px;
+  color:navy;
+  height: 2em;
+  margin-left: 5px;
 }
 
 .searchBar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search:hover {
-   border: none;
-   color:pink;
+  border: none;
+  color:pink;
 }
 .ribboncontainer h1 {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .ribboncontainer h1:hover {
-    color: navy;
+  color: navy;
 }
 .ribboncontainer h2 {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .ribboncontainer h2:hover {
-    color: navy;
+  color: navy;
 }
 .usertext {
-    height : 32px;
-    margin-top:4px;
+  height : 32px;
+  margin-top:4px;
 }
 .classtext {
-    height : 32px;
-    margin-top:4px;
+  height : 32px;
+  margin-top:4px;
 }  
 
 #searchvalues {
-border-color: navy;
-
+  border-color: navy;
 }
 
 .searchcontainer {
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: center;
-    
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;    
 }
 
 #searchvalues {
-    border-radius: 5em;
-    height: 2em;
-    width:25em;
-    
+  border-radius: 5em;
+  height: 2em;
+  width:25em;    
 }
 
 .title {
-    display:flex;
-    justify-content: center;
-    align-content: center;
-    margin-top:1em;
-    font-size:40px;  
-      
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  margin-top:1em;
+  font-size:40px;        
 }
 
 .searchresults {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-left: 15em;
-    margin-right: 15em;
-    margin-top:2em;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    flex-direction: column;
-    
-
-}
-
-.datainformation {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 15em;
+  margin-right: 15em;
+  margin-top:2em;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  flex-direction: column;  
 }
 
 .table {
-    border-color: navy;
-    border-style: solid;
-    border-width: 2px;
-    padding: 2em;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+  border-color: navy;
+  border-style: solid;
+  border-width: 2px;
+  padding: 2em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .individualResults {
-    border-color: navy;
-    border-style: solid;
-    border-width: 1px;
-    max-height:500px;
+  border-color: navy;
+  border-style: solid;
+  border-width: 1px;
+  max-height:500px;
 }
 
 .custom-json-pretty {
-    max-height: 450px;
-    white-space: pre-wrap;
-    overflow-y: scroll;
+  max-height: 450px;
+  white-space: pre-wrap;
+  overflow-y: scroll;
 }

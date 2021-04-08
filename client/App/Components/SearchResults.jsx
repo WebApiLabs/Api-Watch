@@ -1,28 +1,33 @@
 import React from 'react';
-import Results from './Results.jsx'
+import Results from './Results';
 
-class SearchResults extends React.Component{
-    constructor(props){
-        super(props)
-    }
-    
-    render(){
-        const jsonRender = JSON.stringify(this.props.apiInfo.results, null, 2);
-        let jsonResults = <Results jsonRender = {jsonRender}/>
-      return(
-        <table className='table'>
-          <tbody>
-            <tr>
-              <td className='datainformation'>
-                <p className='datainformation'>Name of API: {this.props.apiInfo.api} </p>
-                <p className='datainformation'>Response Time: {this.props.apiInfo.time}</p>
-                <div className='datainformation'>Results: {jsonResults}</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      )
-    }
+const SearchResults = (props) => {
+  const { results } = props.apiInfo;
+  const jsonRender = JSON.stringify(results, null, 2);
+  const jsonResults = <Results jsonRender={jsonRender} />;
+
+  return (
+    <table className="table">
+      <tbody>
+        <tr>
+          <td className="datainformation">
+            <p className="datainformation">
+              Name of API:
+              {this.props.apiInfo.api}
+            </p>
+            <p className="datainformation">
+              Response Time:
+              {this.props.apiInfo.time}
+            </p>
+            <div className="datainformation">
+              Results:
+              {jsonResults}
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
 }
 
-export default SearchResults
+export default SearchResults;
