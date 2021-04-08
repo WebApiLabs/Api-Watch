@@ -14,7 +14,7 @@ class MainPage extends React.Component {
           <RibbonContainer loginFail={this.props.loginFail} />
         </div>
         <div className="title">
-          <h2>API Gateway</h2>
+          <img src="https://vectorified.com/images/orca-icon-9.png" alt="Orca icon"></img>
         </div>
         <div className="body">
           <SearchContainer />
