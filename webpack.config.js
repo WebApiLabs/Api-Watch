@@ -17,7 +17,7 @@ module.exports = {
   mode: 'development',
   devServer: {
     host: 'localhost',
-    port: 8080,
+    port: 8081,
     // match the output path
     contentBase: path.resolve(__dirname, 'dist'),
     // enable HMR on the devServer
