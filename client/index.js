@@ -30,7 +30,7 @@ class App extends React.Component{
     console.log('Login Initiated.')
     console.log(`Username: ${userStr}, Password: ${pwStr}`)
 
-    // get ride of whitespaces from login
+    // get rid of whitespaces from login
     userStr.replace(/\s+$/, '');
     
     const sendObj = {'username':userStr, 'password': pwStr}
