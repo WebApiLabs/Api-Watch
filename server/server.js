@@ -28,9 +28,9 @@ app.use(cookieParser())
 
 // serve the home page
 app.get('/', 
-    // sessionController.isLoggedin,  
+    sessionController.isLoggedin,  
     (req, res) => {
-        if (res.locals.isLogged) res.send('is logged')
+        if (res.locals.hasSession) res.json({isLoggedIn: true})
         res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
     }
 );
@@ -68,7 +68,7 @@ app.post('/signup',
 app.post('/search', 
     apiController.googleBooks,
     apiController.newYorkTimes,
-    // apiController.openLibrary,
+    apiController.openLibrary,
     (req, res) => res.status(200).json(res.locals.data)
 )
 
