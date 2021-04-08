@@ -8,12 +8,12 @@ const apiController = {};
  * @params {string} data - The data that was returned from the api request
  * @params {string} time - The ellapsed time the api query took
 */
+
 function ApiResult (apiName, data, time){
     this.api = apiName;
     this.results = data;
     this.time = time;
 }
-
 
 apiController.googleBooks = (req, res, next) => {
     // Checks to see if res.locals has an array so that this controller could be first in middleware chain if needed
@@ -76,7 +76,6 @@ apiController.openLibrary = (req, res, next) => {
 
     // Create API Url with the given string from the client
     const url = `http://openlibrary.org/search.json?title=${req.body.updatedString}`;
-    
     const startTime = Date.now();
 
     // Making an external api request to get the book info from the given API
