@@ -45,6 +45,7 @@ body{
 
 .buttonText:hover {
   font-weight: bold;
+  cursor: pointer;
 }
 
 .signup {
@@ -69,6 +70,7 @@ body{
 .login:hover {
   font-weight: bold;
   color: #262626;
+  cursor: pointer;
 }
 
 .signuppage{
@@ -137,6 +139,7 @@ input[type=text]:focus {
 
 .search:hover {
   font-weight: bold;
+  cursor: pointer;
 }
 
 .search[type=submit]:focus {
@@ -153,7 +156,8 @@ input[type=text]:focus {
 }
 
 .resultsButton:hover {
-  font-weight: bold;
+  font-weight: bold;  
+  cursor: pointer;
 }
 
 .resultsButton[type=submit]:focus {
