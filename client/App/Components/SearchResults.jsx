@@ -12,15 +12,27 @@ const SearchResults = (props) => {
         <tr>
           <td className="datainformation">
             <p className="datainformation">
-              Name: 
-              {props.apiInfo.api}
+              <b>Name: </b>
+              {' ' +props.apiInfo.api}
             </p>
             <p className="datainformation">
-              Response Time: 
-              {props.apiInfo.time}
+              <b>Response Time:</b> 
+              {' ' +props.apiInfo.time}
+            </p>
+            <p className="datainformation">
+              <b>Data Type: </b>
+              {' ' +props.apiInfo.contentType}
+            </p>
+            <p className="datainformation">
+              <b>Number of Results: </b>
+              {' ' +props.apiInfo.numResults}
+            </p>
+            <p className="datainformation">
+              <b>Pricing:</b> 
+              {' ' +props.apiInfo.accessibility}
             </p>
             <div className="jsonTable">
-              Results: 
+              <b>Results: </b>
               {jsonResults}
             </div>
           </td>

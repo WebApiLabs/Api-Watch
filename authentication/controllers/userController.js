@@ -4,9 +4,6 @@ const userController = {};
 
 // Create a new user account
 userController.createUser = (req, res, next) => {
-  // console.log("req body username: ", req.body.username)
-  // console.log("req body password: ", req.body.password)
-  
   //Attempt To create a new User in the Database
   User.create({username: req.body.username, password: req.body.password}, (err, user) => {
 

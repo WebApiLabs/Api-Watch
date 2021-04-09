@@ -18,6 +18,17 @@ class App extends React.Component {
     this.doLogIn = this.doLogIn.bind(this);
   }
 
+  componentDidMount() {
+    const tempState = JSON.parse(JSON.stringify(this.state))
+    fetch('/isLoggedIn')
+    .then((response) => response.json())
+    .then((data) => {
+      const updateObj = {loginFail: !data.isLoggedIn}
+      this.setState(updateObj)
+    })
+    .catch((err) => console.log(err));
+  }
+
   // invoked when user presses login button
   doLogIn() {
     const userStr = document.getElementById('username').value;

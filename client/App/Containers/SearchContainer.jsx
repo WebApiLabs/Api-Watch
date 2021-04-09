@@ -43,6 +43,9 @@ class SearchContainer extends React.Component {
             api: element.api,
             time: element.time,
             results: element.results,
+            contentType: element.contentType,
+            numResults: element.numResults,
+            accessibility: element.accessibility
           };
           infoArray.push(infoObj);
         });

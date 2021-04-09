@@ -2,31 +2,6 @@ const Session = require('../models/sessionModel');
 
 const sessionController = {};
 
-//BEFORE
-// sessionController.verifyLogin = (req, res, next) => {
-
-//   // verify user has ssid cookie
-//   if (!Object.prototype.hasOwnProperty.call(req.cookies,'ssid')){
-//     // if cookie not found, 
-//     res.locals.reactToken = false;
-//     return next();
-
-//   } else {
-//     // if cookie is found, get the session 
-//     Session.findOne({cookieId: req.cookies.ssid}, (err,session) => {
-//       if(err) return next({err: 'error in session find one in session controller'});
-//       // if session isnt found return to main page without REACT TOKEN
-//       if(!session){
-//         res.locals.reactToken = false;
-//         console.log('no session found');
-//       }
-//       // go to front page serving no matter state of REACT TOKEN 
-//       return next();
-//     });
-//   }
-// }
-
-//AFTER
 
 // Checks if the User has an active session or not
 sessionController.isLoggedin = (req, res, next) => {
